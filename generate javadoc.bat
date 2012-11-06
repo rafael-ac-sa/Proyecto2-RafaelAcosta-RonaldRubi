@@ -1,0 +1,1 @@
+javadoc -d docs/ -version -author -use src/display/*.java src/domain/*.java

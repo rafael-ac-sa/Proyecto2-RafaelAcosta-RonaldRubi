@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<bean id="sucursalRepository" class="domain.SucursalRepository">
+		<property name="sucursales">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<ref bean="S001" />
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<ref bean="S002" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="suscriptorRepository" class="domain.SuscriptorRepository">
+		<property name="suscriptores">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<ref bean="S003" />
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<ref bean="S004" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="servicioRepository" class="domain.ServicioRepository">
+		<property name="servicios">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<ref bean="S005" />
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<ref bean="S006" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="averiaRepository" class="domain.AveriaRepository">
+		<property name="averias">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<ref bean="S007" />
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<ref bean="S008" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="regionRepository" class="domain.RegionRepository">
+		<property name="regiones">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<ref bean="S009" />
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<ref bean="S010" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="S001" class="domain.Sucursal">
+		<property name="codSucursal" value="1"/>
+		<property name="telefono" value="1011101"/>
+		<property name="ciudad" value="Heredia"/>
+		<property name="direccion" value="San Rafael"/>
+		<property name="encargado" value="Alberto Acosta"/>
+	</bean>
+	<bean id="S002" class="domain.Sucursal">
+		<property name="codSucursal" value="2"/>
+		<property name="telefono" value="2022202"/>
+		<property name="ciudad" value="San Jose"/>
+		<property name="direccion" value="Los Yoses"/>
+		<property name="encargado" value="Luis Lopez"/>
+	</bean>
+	
+	<bean id="S003" class="domain.Suscriptor">
+		<property name="idSuscriptor" value="1"/>
+		<property name="nombre" value="Allan Zamora"/>
+		<property name="identificacion" value="40125165"/>
+		<property name="telefono" value="89652565"/>
+		<property name="direccion" value="San Pablo"/>
+	</bean>
+	<bean id="S004" class="domain.Suscriptor">
+		<property name="idSuscriptor" value="2"/>
+		<property name="nombre" value="Adriana Sanchez"/>
+		<property name="identificacion" value="45860244"/>
+		<property name="telefono" value="86527485"/>
+		<property name="direccion" value="Pavas"/>
+	</bean>
+	
+	<bean id="S005" class="domain.Servicio">
+		<property name="codServicio" value="1"/>
+		<property name="fechaInst" value="2012-08-09"/>
+		<property name="direccion" value="Mantenimiento General"/>
+		<property name="regionCodRegion" value="1"/>
+		<property name="suscriptorIdSuscriptor" value="1"/>
+	</bean>
+	<bean id="S006" class="domain.Servicio">
+		<property name="codServicio" value="2"/>
+		<property name="fechaInst" value="2012-10-09"/>
+		<property name="direccion" value="Reinstalacion Completa"/>
+		<property name="regionCodRegion" value="2"/>
+		<property name="suscriptorIdSuscriptor" value="2"/>
+	</bean>
+	
+	<bean id="S007" class="domain.Averia">
+		<property name="codAveria" value="1"/>
+		<property name="descripcion" value="Error de configuracion"/>
+		<property name="fecha" value="2012-10-09"/>
+		<property name="servicioCodServicio" value="1"/>
+	</bean>
+	<bean id="S008" class="domain.Averia">
+		<property name="codAveria" value="2"/>
+		<property name="descripcion" value="La imagen es borrosa"/>
+		<property name="fecha" value="2012-02-08"/>
+		<property name="servicioCodServicio" value="2"/>
+	</bean>
+	<bean id="S009" class="domain.Region">
+		<property name="codRegion" value="1"/>
+		<property name="nombre" value="Area Metropolitana"/>
+		<property name="sucursalCodSucursal" value="1"/>
+	</bean>
+	<bean id="S010" class="domain.Region">
+		<property name="codRegion" value="2"/>
+		<property name="nombre" value="Zonas Alejadas"/>
+		<property name="sucursalCodSucursal" value="2"/>
+	</bean>
+	
+</beans>
